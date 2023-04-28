@@ -1,13 +1,24 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and test
+        uses: docker/build-push-action@v2
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+          context: .
+          push: false
+          tags: latest
+          file: ./Dockerfile
+
+      - name: Test
+        run: docker run stang94/tp1:latest npm test
