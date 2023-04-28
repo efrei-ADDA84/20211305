@@ -2,14 +2,14 @@
 
 # 1. Lancer les TP
 
-TP1 :
+## TP1 :
 - ouvrir un terminal
 - écrire la commande suivante :
 ```
 docker run --env LAT="31.2504" --env LONG="-99.2506" --env API_KEY=9e518e1b1b5a0288918557d8a16255bb stang94/tp1:latest
 ```
 
-TP2 :
+## TP2 :
 - ouvrir un terminal
 - écrire la commande suivante pour déployer le conteneur
 ```
@@ -56,22 +56,23 @@ CMD [ "python", "./XXX.py" ]
 - Exécution par python de XXX.py, changer XXX par "weather" pour le TP1 et "app" pour le TP2
 
 # 4.Dockerhub
-TP1 :
+## TP1 :
 ```
 https://hub.docker.com/r/stang94/tp1
 ```
 
-TP2 :
+## TP2 :
 ```
 https://hub.docker.com/r/stang94/tp2
 ```
 
 # 5. Rapport
-TP1 :
+## TP1 :
 ```
-https://drive.google.com/file/d/1FnAPyVurq9cZ-iv75zbLq1NqZ3z042LY/view?usp=sharing
+https://docs.google.com/document/d/1G7k5I8tQJMG45H0EFz8JQwBW7AOB18A1WDniFVgOajM/edit#
 ```
 
-TP2 :
+## TP2 :
 ```
+https://docs.google.com/document/d/1SXV67yKEIDb_Uj9HgDAwTruUlqChXwAvY70YAWMqTwA/edit#
 ```
