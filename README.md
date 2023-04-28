@@ -39,3 +39,8 @@ CMD [ "python", "./weather.py" ]
 ```
 https://hub.docker.com/r/stang94/tp1
 ```
+
+# 5. Rapport
+```
+https://drive.google.com/file/d/1FnAPyVurq9cZ-iv75zbLq1NqZ3z042LY/view?usp=sharing
+```
