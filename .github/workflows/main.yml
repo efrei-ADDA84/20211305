@@ -1,0 +1,24 @@
+name: learn-github-actions
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and test
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          tags: latest
+          file: ./Dockerfile
+
+      - name: Test
+        run: docker run --env LAT="31.2504" --env LONG="-99.2506" --env API_KEY=9e518e1b1b5a0288918557d8a16255bb stang94/tp1:latest
