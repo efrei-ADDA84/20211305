@@ -1,8 +1,8 @@
 import os
 import requests
 
-LAT = 31.2504
-LONG = -99.2506
+LAT = "31.2504"
+LONG = "-99.2506"
 API_KEY = os.getenv('API_KEY')
 
 
