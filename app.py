@@ -12,6 +12,9 @@ app = Flask(__name__)
 def get_weather():
     LAT = request.args.get('lat')
     LONG = request.args.get('lon')
+    if LAT==None and LONG==None : 
+        LAT = "31.2504"
+        LONG = "-99.2506"
     API_KEY = os.getenv('API_KEY')
     
     url = f'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LONG}&appid={API_KEY}&units=metric'
