@@ -21,4 +21,4 @@ jobs:
           file: ./Dockerfile
 
       - name: Test
-        run: docker run stang94/tp1:latest npm test
+        run: docker run stang94/tp1 npm test
