@@ -14,7 +14,7 @@ jobs:
 
     - name: Check dockerfile with hadolint
       run: |
-        hadolint Dockerfile > hadolint_output.txt
+        docker run --rm -i hadolint/hadolint < dockerfile
         if grep -q "warning" hadolint_output.txt; then
           echo "Hadolint found warnings in Dockerfile. Fix the warnings and try again."
           exit 1
