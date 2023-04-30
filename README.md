@@ -20,7 +20,7 @@ import os
 import requests (ver 2.28.1)
 ```
 
-Pour le TP2 on utilise ca pour le déploiement flask
+Pour le TP2, j'utilise Flask
 ```
 from flask import Flask,request
 from dotenv import load_dotenv
