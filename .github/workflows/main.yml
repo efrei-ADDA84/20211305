@@ -12,9 +12,8 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v2
 
-    - name: Check Dockerfile syntax with Hadolint
+    - name: Check dockerfile with hadolint
       run: docker run --rm -i hadolint/hadolint < dockerfile
-      continue-on-error: true
 
     - name: Build Docker image
       if: ${{ !failure() }}
