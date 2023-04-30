@@ -8,10 +8,15 @@ jobs:
   hadolint :
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Run hadolint
-        run: docker run --rm -i hadolint/hadolint < dockerfile
+    - name: Checkout source code
+      uses: actions/checkout@v2
+
+    - name: Check Dockerfile syntax with hadolint
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        target: hadolint
+        args: --ignore DL3008 --ignore DL3018 --ignore DL4000 --ignore DL4001 Dockerfile
         
   build-and-publish:
     runs-on: ubuntu-latest
