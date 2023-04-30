@@ -1,4 +1,4 @@
-FROM python:3.11.1-alpine3.15
+FROM python:3.11.1-slim-buster
 
 
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel
