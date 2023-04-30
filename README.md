@@ -4,7 +4,7 @@
 
 ## TP2 :
 - ouvrir un terminal
-- écrire la commande suivante pour déployer le conteneur
+- écrire la commande suivante pour déployer le conteneur (test fait avec windows, donc je ne sais pas comment ca va se passer avec linux)
 ```
 docker run -p 8081:8081 --env API_KEY=9e518e1b1b5a0288918557d8a16255bb stang94/tp2:latest
 ````
@@ -32,8 +32,10 @@ LAT = os.getenv('LAT')
 LONG = os.getenv('LONG')
 API_KEY = os.getenv('API_KEY')
 ```
+<br>
 
 Le .env est laissé dans le github car c'est pour le TP, mais en entreprise il est toujours enlevé avant push
+
 .env :
 ```
 API_KEY = "9e518e1b1b5a0288918557d8a16255bb"
