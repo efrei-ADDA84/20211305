@@ -2,9 +2,17 @@ name: Build and publish Docker image
 
 on:
   push:
-    branches: [ main ]
+    branches: [ tp2 ]
 
 jobs:
+  hadolint :
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run hadolint
+        run: docker run --rm -i hadolint/hadolint < dockerfile
+        
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
