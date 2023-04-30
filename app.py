@@ -32,10 +32,9 @@ def get_weather():
         description = data['weather'][0]['description']
         
         #Print the result
-        print(f"City : {city} \n Temperature : {temperature}°C \n Weather : {description}")
+        return(f"City : {city} \n Temperature : {temperature}°C \n Weather : {description}")
     else:
-        print(response)
-        print("Problem of response")
+        return("Problem of response",response)
 
 #Run the app
 if __name__ == '__main__':
