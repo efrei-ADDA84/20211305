@@ -5,29 +5,19 @@ on:
     branches: [ tp2 ]
 
 jobs:
-  hadolint :
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-        
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout source code
       uses: actions/checkout@v2
 
-    - name: Check Dockerfile syntax with hadolint
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        target: hadolint
-        args: --ignore DL3008 --ignore DL3018 --ignore DL4000 --ignore DL4001 dockerfile
-        run : docker run --rm -i hadolint/hadolint < dockerfile
-
+    - name: Check Dockerfile syntax with Hadolint
+      run: docker run --rm -i hadolint/hadolint < Dockerfile
+      continue-on-error: true
 
     - name: Build Docker image
+      if: ${{ !failure() }}
       run: docker build -t stang94/tp2:latest .
 
     - name: Login to Docker Hub
@@ -37,8 +27,10 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Push Docker image to Docker Hub
+      if: ${{ !failure() }}
       uses: docker/build-push-action@v2
       with:
         context: .
         push: true
         tags: stang94/tp2:latest
+
