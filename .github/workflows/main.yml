@@ -5,7 +5,13 @@ on:
     branches: [ tp2 ]
 
 jobs:
+  hadolint :
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+        
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
@@ -18,6 +24,8 @@ jobs:
         context: .
         target: hadolint
         args: --ignore DL3008 --ignore DL3018 --ignore DL4000 --ignore DL4001 dockerfile
+        run : docker run --rm -i hadolint/hadolint < dockerfile
+
 
     - name: Build Docker image
       run: docker build -t stang94/tp2:latest .
@@ -34,4 +42,3 @@ jobs:
         context: .
         push: true
         tags: stang94/tp2:latest
-
