@@ -1,10 +1,6 @@
 import os
 import requests
 from flask import Flask,request
-from dotenv import load_dotenv
-
-#Load data environment
-load_dotenv()
 
 #Preparing the app
 app = Flask(__name__)
