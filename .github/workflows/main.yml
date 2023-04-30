@@ -16,7 +16,7 @@ jobs:
       with:
         context: .
         target: hadolint
-        args: --ignore DL3008 --ignore DL3018 --ignore DL4000 --ignore DL4001 Dockerfile
+        args: --ignore DL3008 --ignore DL3018 --ignore DL4000 --ignore DL4001 dockerfile
         
   build-and-publish:
     runs-on: ubuntu-latest
