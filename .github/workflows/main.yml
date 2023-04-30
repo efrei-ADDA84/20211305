@@ -5,6 +5,15 @@ on:
     branches: [ tp2 ]
 
 jobs:
+  hadolint :
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Hadolint
+        uses: docker://hadolint/hadolint
+        with:
+          args: "hadolint dockerfile --fail-level error"
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
