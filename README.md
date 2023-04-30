@@ -1,6 +1,6 @@
 # 20211305
 
-# 1. Lancer les TP
+# 1. Lancer le TP
 
 ## TP1 :
 - ouvrir un terminal
@@ -16,11 +16,6 @@ import os
 import requests (ver 2.28.1)
 ```
 
-Pour le TP2 on utilise ca pour le déploiement flask
-```
-from flask import Flask,request
-from dotenv import load_dotenv
-```
 Variables d'environnement :
 ```
 LAT = os.getenv('LAT')
@@ -31,11 +26,18 @@ API_KEY = os.getenv('API_KEY')
 # 3. Dockerfile
 ```
 FROM python:3.11.1-slim-buster
+
+ENV VIRTUAL_ENV=/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --requirement requirements.txt
+
 COPY . .
-CMD [ "python", "./weather.py" ]
+
+CMD [ "python", "weather.py" ]
 ```
 - Définir le Python
 - Définir l'espace de travail
