@@ -1,13 +1,6 @@
 # 20211305
 
-# 1. Lancer les TP
-
-## TP1 :
-- ouvrir un terminal
-- écrire la commande suivante :
-```
-docker run --env LAT="31.2504" --env LONG="-99.2506" --env API_KEY=9e518e1b1b5a0288918557d8a16255bb stang94/tp1:latest
-```
+# 1. Lancer le TP
 
 ## TP2 :
 - ouvrir un terminal
@@ -32,6 +25,7 @@ Pour le TP2 on utilise ca pour le déploiement flask
 from flask import Flask,request
 from dotenv import load_dotenv
 ```
+
 Variables d'environnement :
 ```
 LAT = os.getenv('LAT')
@@ -39,39 +33,43 @@ LONG = os.getenv('LONG')
 API_KEY = os.getenv('API_KEY')
 ```
 
+Le .env est laissé dans le github car c'est pour le TP, mais en entreprise il est toujours enlevé avant push
+.env :
+```
+API_KEY = "9e518e1b1b5a0288918557d8a16255bb"
+```
+
+
 # 3. Dockerfile
 ```
 FROM python:3.11.1-slim-buster
+
+ENV VIRTUAL_ENV=/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --requirement requirements.txt
+
 EXPOSE 8081
+
 COPY . .
-CMD [ "python", "./XXX.py" ]
+
+CMD [ "python", "./app.py" ]
 ```
 - Définir le Python
 - Définir l'espace de travail
 - Copie des fichier données
 - Installation PIP des librairy dans le requiments.txt
-- Exécution par python de XXX.py, changer XXX par "weather" pour le TP1 et "app" pour le TP2
+- Exécution par python de app.py
 
 # 4.Dockerhub
-## TP1 :
-```
-https://hub.docker.com/r/stang94/tp1
-```
-
 ## TP2 :
 ```
 https://hub.docker.com/r/stang94/tp2
 ```
-
 # 5. Rapport
-## TP1 :
-```
-https://docs.google.com/document/d/1G7k5I8tQJMG45H0EFz8JQwBW7AOB18A1WDniFVgOajM/edit#
-```
-
 ## TP2 :
 ```
 https://docs.google.com/document/d/1SXV67yKEIDb_Uj9HgDAwTruUlqChXwAvY70YAWMqTwA/edit#
