@@ -1,13 +1,15 @@
-import os
 import requests
+from decouple import config
 
-LAT = os.getenv('LAT')
-LONG = os.getenv('LONG')
-API_KEY = os.getenv('API_KEY')
+LAT = config('LAT')
+LONG = config('LONG')
+API_KEY = config('API_KEY')
 
-
+if not LAT or not LONG or not API_KEY:
+    raise ValueError("Environment variables LAT, LONG, and API_KEY must be set")
 
 url = f'https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LONG}&appid={API_KEY}&units=metric'
+
 response = requests.get(url)
 
 if response.status_code == 200:
