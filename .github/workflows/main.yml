@@ -10,10 +10,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Run Hadolint
-        uses: docker://hadolint/hadolint
-        with:
-          args: "hadolint dockerfile --fail-level error"
+      - name: Run hadolint
+        run: docker run --rm -i hadolint/hadolint < Dockerfile
+        
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
