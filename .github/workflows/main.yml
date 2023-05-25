@@ -28,13 +28,15 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      # Build et push de l'image à ACR
-    - name: Build and push image to ACR
-      uses: azure/docker@v1
+    - name: Build and push Docker image
+      uses: azure/docker-login@v1
       with:
-        context: .
-        dockerfile: Dockerfile  # Assurez-vous d'avoir un fichier Dockerfile à la racine de votre projet
-        imageName: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+          run: |
+            docker build .-t ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
 
     - name: Deploy to Azure Container Instance
       uses: azure/aci-deploy@v1
@@ -45,8 +47,6 @@ jobs:
         image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
         location: westeurope
         registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-        registry-username: ${{ secrets.REGISTRY_USERNAME }}
-        registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         name : 20211305
 
     - name: Logout of Azure Container Registry
