@@ -48,4 +48,6 @@ jobs:
         image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
         location: westeurope
         registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        registry-username: ${{ secrets.REGISTRY_USERNAME }}
+        registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         name : 20211305
