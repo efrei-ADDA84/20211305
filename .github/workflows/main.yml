@@ -42,7 +42,7 @@ jobs:
         resource-group: ${{ secrets.RESOURCE_GROUP }}
         dns-name-label: devops-20211305
         container-name : ${{ secrets.RESOURCE_GROUP }}
-        image: efreidevops.azurecr.io/20211305:v1
+        image: ${{ REGISTRY_LOGIN_SERVER }}/20211305:v1
         location: westeurope
         name : 20211305
 
