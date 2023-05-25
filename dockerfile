@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir --requirement requirements.txt
 
 EXPOSE 8081
 
+LABEL repository=efreidevops.azurecr.io/20211305
+
 COPY . .
 
 CMD [ "python", "./app.py" ]
