@@ -11,7 +11,7 @@ env:
   DNS_LABEL: devops-20211305
   CONTAINER_NAME: 20211305  # Remplacez par votre identifiant EFREI
   ACR_LOGIN_SERVER: efreiprediction.azurecr.io
-  ACR_REPOSITORY: ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ env.CONTAINER_NAME }}:v1  # Assurez-vous de remplacer "efreiprediction" par votre ACR
+  ACR_REPOSITORY: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1  # Assurez-vous de remplacer "efreiprediction" par votre ACR
 
 jobs:
   build-and-deploy:
