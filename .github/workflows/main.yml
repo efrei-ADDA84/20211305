@@ -42,7 +42,6 @@ jobs:
     - name: Deploy to Azure Container Instance
       uses: azure/aci-deploy@v1
       with:
-        azure-credentials: ${{ secrets.AZURE_CREDENTIALS }}
         resource-group: ${{ secrets.RESOURCE_GROUP }}
         dns-name-label: devops-20211305
         image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
@@ -52,4 +51,4 @@ jobs:
         registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         name : 20211305
         ports : 8081
-        secure-environment-variables: API_KEY = ${{ secrets.API_KEY }}
+        secure-environment-variables: API_KEY = ${{ secrets.OPENWEATHER_API_KEY }}
