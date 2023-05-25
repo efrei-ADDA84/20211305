@@ -43,7 +43,6 @@ jobs:
         dns-name-label: devops-20211305
         image: efreidevops.azurecr.io/20211305:v1
         location: francecentral
-        container-name: 20211305
         name : 20211305
 
     - name: Logout of Azure Container Registry
