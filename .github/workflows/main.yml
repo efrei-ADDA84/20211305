@@ -51,6 +51,6 @@ jobs:
         registry-username: ${{ secrets.REGISTRY_USERNAME }}
         registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         name : 20211305
-        pots : 8081
+        ports : 8081
         environment-variable: |
             API_KEY = ${{ secrets.API_KEY }}
