@@ -34,7 +34,7 @@ jobs:
       uses: azure/aci-deploy@v1  # Update the action name here
       with:
         azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-        resource_group: ${{ secrets.AZURE_RESOURCE_GROUP }}
+        resource_group: ${{ secrets.RESOURCE_GROUP }}
         dns_name_label: devops-20211305
         image: efreidevops.azurecr.io/20211305:v1
         location: francecentral
