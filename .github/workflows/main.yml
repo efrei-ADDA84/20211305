@@ -42,7 +42,7 @@ jobs:
         resource-group: ${{ secrets.RESOURCE_GROUP }}
         dns-name-label: devops-20211305
         image: efreidevops.azurecr.io/20211305:v1
-        location: francecentral
+        location: West Europe
         name : 20211305
 
     - name: Logout of Azure Container Registry
