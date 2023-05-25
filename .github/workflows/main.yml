@@ -31,7 +31,7 @@ jobs:
         tags: efreidevops.azurecr.io/20211305:v1
 
     - name: Deploy to Azure Container Instance
-      uses: azure/container-instances-deploy@v1
+      uses: azure/aci-deploy@v1  # Update the action name here
       with:
         azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
         resource_group: ${{ secrets.AZURE_RESOURCE_GROUP }}
