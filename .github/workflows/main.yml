@@ -52,4 +52,4 @@ jobs:
         name: 20211305
         ports: 8081
         secure-environment-variables: |
-          API_KEY=9e518e1b1b5a0288918557d8a16255bb
+          API_KEY=${{ secrets.OPENWEATHER_API_KEY }}
