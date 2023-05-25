@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-            docker build .-t ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
+            docker build .- t ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
             docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
 
     - name: Deploy to Azure Container Instance
@@ -48,6 +48,3 @@ jobs:
         location: westeurope
         registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
         name : 20211305
-
-    - name: Logout of Azure Container Registry
-      run: docker logout ${{ secrets.REGISTRY_LOGIN_SERVER }}
