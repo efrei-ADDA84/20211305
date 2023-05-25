@@ -43,6 +43,7 @@ jobs:
         dns-name-label: devops-20211305
         image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20211305:v1
         location: westeurope
+        registry-login-server: efreidevops.azurecr.io
         name : 20211305
 
     - name: Logout of Azure Container Registry
