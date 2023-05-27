@@ -12,6 +12,12 @@ curl "http://devops-20211305.westeurope.azurecontainer.io:8081/?lat=5.902785&lon
 
 
 # 2. Outils
+Variables dans le lien : 
+```
+LAT = request.args.get('lat')
+LONG = request.args.get('lon')
+```
+
 Variables d'environnement :
 ```
 API_KEY = os.getenv('API_KEY')
